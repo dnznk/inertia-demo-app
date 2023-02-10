@@ -11,8 +11,8 @@ export default defineConfig({
 		vue(),
 		laravel({
 			postcss: [
-				// tailwindcss(),
-				// autoprefixer(),
+				tailwindcss(),
+				autoprefixer(),
 			],
 		}),
 	],

@@ -1,9 +1,11 @@
 <template>
     <Layout>
         <div class="flex justify-between mb-6">
-            <h1 class="text-3xl">
-                Users
-            </h1>
+            <div class="flex justify-between mb-6">
+                <h1 class="text-3xl">Users</h1>
+
+                <Link href="/users/create" class="text-blue-500 text-sm ml-2">New User</Link>
+            </div>
 
             <input v-model="search" type="text" placeholder="Search..." class="border px-2 rounded-lg">
         </div>
@@ -48,20 +50,14 @@ import Layout from "@/views/shared/Layout.vue";
 import Pagination from "@/views/shared/Pagination.vue";
 import {ref, watch} from "vue";
 import {Inertia} from "@inertiajs/inertia";
+import debounce from "lodash.debounce";
 
-// export default {
-//     layout: Layout,
-//     components: {Pagination},
-//
-//     props: {users: Object}
-// };
-
-defineProps({users: Object});
-let search = ref("");
-watch(search, value => {
-    Inertia.get('/users', {search: value}, {
-        preserveState: true,
-        replace: true
-    });
+defineProps({
+    users: Object,
+    filters: Object,
 });
+let search = ref("");
+watch(search, debounce(function (value) {
+    Inertia.get('/users', {search: value}, {preserveState: true, replace: true});
+}, 300));
 </script>

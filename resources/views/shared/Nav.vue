@@ -1,6 +1,6 @@
 <template>
     <nav class="mt-6">
-        <ul class="list-disc">
+        <ul class="flex list-disc">
             <li>
                 <NavLink href="/" :active="$page.component === 'Home'">
                     Home
@@ -23,9 +23,9 @@
 </template>
 
 <script>
-import {NavLink} from {NavLink};
+import NavLink from "./NavLink.vue";
 export default {
-    components: { Link },
+    components: { NavLink },
 };
 </script>
 

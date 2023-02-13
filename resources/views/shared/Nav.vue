@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <ul class="flex list-disc space-x-4 list-inside">
+        <ul class="flex space-x-6">
             <li>
                 <NavLink href="/" :active="$page.component === 'Home'">
                     Home
@@ -24,8 +24,9 @@
 
 <script>
 import NavLink from "./NavLink.vue";
+
 export default {
-    components: { NavLink },
+    components: {NavLink},
 };
 </script>
 

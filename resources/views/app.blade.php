@@ -7,9 +7,7 @@
         <link href="/resources/css/tailwind.css" rel="stylesheet">
 		@vite
 	</head>
-	<body class="antialiased">
-    <section class="px-8">
+	<body>
 		@inertia
-    </section>
 	</body>
 </html>

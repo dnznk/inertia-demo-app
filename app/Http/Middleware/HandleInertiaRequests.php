@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -41,11 +42,11 @@ class HandleInertiaRequests extends Middleware
                 'php' => PHP_VERSION,
                 'laravel' => \Illuminate\Foundation\Application::VERSION
             ],
-            'auth' => [
+            'auth' => Auth::user() ? [
                 'user' => [
-                    'username' => 'John Doe'
+                    'username' => Auth::user()->name
                 ]
-            ]
+            ] : null
         ]);
     }
 }

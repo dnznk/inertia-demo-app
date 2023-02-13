@@ -44,7 +44,7 @@
 </template>
 
 <script setup>
-import Layout from '../shared/Layout.vue';
+import Layout from "@/views/shared/Layout.vue";
 import Pagination from "@/views/shared/Pagination.vue";
 import {ref, watch} from "vue";
 import {Inertia} from "@inertiajs/inertia";
